@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class AppService {
   healthcheck(): string {
-    return 'NestJS server is running';
+    return "NestJS server is running";
   }
 }

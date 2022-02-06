@@ -1,0 +1,3 @@
+<div class="summary-day" [ngClass]="{ weekend: isWeekend, weekday: isWeekday, today: isToday }">
+  <div *ngIf="date > 0">{{ date }}</div>
+</div>
