@@ -1,20 +1,18 @@
-<table>
-  <thead>
-    <tr>
-      <th>S</th>
-      <th>M</th>
-      <th>T</th>
-      <th>W</th>
-      <th>T</th>
-      <th>F</th>
-      <th>S</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let week of weeks">
-      <td *ngFor="let day of week.days">
-        <app-summary-day [day]="day"></app-summary-day>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="centered">
+  <div>{{ month }} {{ year }}</div>
+
+  <table class="calendar">
+    <thead>
+      <tr class="header-row">
+        <th *ngFor="let wd of daysOfWeek">{{ wd }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let week of weeks">
+        <td *ngFor="let day of week.days">
+          <app-summary-day [day]="day"></app-summary-day>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

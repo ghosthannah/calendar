@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppRoutingModule } from "./app-routing.module";
+import { SharedModule } from "src/shared/shared.module";
+
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
 import { MonthComponent } from "./components/month/month.component";
@@ -12,7 +14,7 @@ import { DayComponent } from "./components/month/day/day.component";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, MonthComponent, SummaryComponent, StatisticsComponent, SummaryDayComponent, DayComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent]
 })

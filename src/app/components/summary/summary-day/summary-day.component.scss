@@ -1,7 +1,17 @@
 .summary-day {
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
   border: 1px solid #eee;
+}
+
+.not-a-day {
+  background-color: #eee;
+}
+
+.summary-date {
+  font-size: 10px;
+  text-align: left;
+  padding: 1px;
 }
 
 .today {
@@ -9,7 +19,7 @@
 }
 
 .weekend {
-  color: grey;
+  color: #d1d1d1;
 }
 
 .weekday {

@@ -7,12 +7,17 @@ import { DateTime } from "luxon";
   styleUrls: ["./summary.component.scss"]
 })
 export class SummaryComponent implements OnInit {
+  public month = "";
+  public year = "";
   public weeks: any[] = [];
+  public daysOfWeek: any[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   public today: DateTime = DateTime.now();
 
   private firstDayOfMonth: DateTime = this.today.startOf("month");
 
   ngOnInit(): void {
+    this.month = this.firstDayOfMonth.toFormat("MMMM");
+    this.year = this.firstDayOfMonth.toFormat("yyyy");
     this.weeks = [];
 
     let currentDay = this.firstDayOfMonth.day - this.firstDayOfMonth.weekday;
