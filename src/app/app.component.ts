@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DateTime } from "luxon";
-import { CalendarService } from "src/shared/services/calendar.service";
-import { ContentService } from "src/shared/services/content.service";
+import { Store } from "@ngrx/store";
 
 @Component({
   selector: "app-root",
@@ -11,19 +10,12 @@ import { ContentService } from "src/shared/services/content.service";
 export class AppComponent implements OnInit {
   title = "calendar";
   today: DateTime = DateTime.now();
-  calendar: any = {};
-  content: any = {};
 
-  constructor(private readonly calendarService: CalendarService, private readonly contentService: ContentService) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.calendarService.getCalendar().subscribe((data: any) => {
-      console.log(data);
-      this.calendar = { ...data };
-    });
-    this.contentService.getContent().subscribe((data: any) => {
-      console.log(data);
-      this.content = { ...data };
-    });
+    this.store.dispatch({ type: "[Calendar API] Load Calendar" });
+    this.store.dispatch({ type: "[Content API] Load Labels" });
+    this.store.dispatch({ type: "[Today] Today Loaded Success", today: this.today });
   }
 }

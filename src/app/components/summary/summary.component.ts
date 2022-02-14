@@ -1,4 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Store, select } from "@ngrx/store";
+import { filter } from "rxjs/operators";
+
+import { selectCalendar, selectToday } from "@state/selectors";
+import { Calendar } from "@models/calendar";
 import { DateTime } from "luxon";
 
 @Component({
@@ -11,11 +16,23 @@ export class SummaryComponent implements OnInit {
   public year = "";
   public weeks: any[] = [];
   public daysOfWeek: any[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  public today: DateTime = DateTime.now();
+  calendar$: Calendar;
+  today$: any;
+  state$: any;
 
-  private firstDayOfMonth: DateTime = this.today.startOf("month");
+  private firstDayOfMonth: DateTime = DateTime.now();
+
+  constructor(private store: Store) {
+    this.calendar$ = {
+      "2022": {},
+      "2023": {}
+    };
+    this.today$ = "";
+    this.state$ = {};
+  }
 
   ngOnInit(): void {
+    this.initializeState();
     this.month = this.firstDayOfMonth.toFormat("MMMM");
     this.year = this.firstDayOfMonth.toFormat("yyyy");
     this.weeks = [];
@@ -36,6 +53,27 @@ export class SummaryComponent implements OnInit {
       }
       this.weeks.push(week);
     }
+  }
+
+  initializeState() {
+    this.store
+      .pipe(
+        select(selectToday),
+        filter((val) => val !== undefined)
+      )
+      .subscribe((sub) => {
+        this.today$ = sub;
+        this.firstDayOfMonth = this.today$.startOf("month");
+      });
+
+    this.store
+      .pipe(
+        select(selectCalendar),
+        filter((val) => val !== undefined)
+      )
+      .subscribe((sub) => {
+        this.calendar$ = sub;
+      });
   }
 
   getCurrentDay(currentDay: number) {

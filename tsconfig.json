@@ -2,6 +2,13 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@state/*": ["src/app/state/*"],
+      "@services/*": ["src/shared/services/*"],
+      "@models/*": ["src/app/models/*"],
+      "@server/*": ["server/*"]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
