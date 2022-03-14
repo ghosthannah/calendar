@@ -9,6 +9,7 @@ export const initialContent: Content = {
 };
 
 export const initialCalendar: Calendar = {
+  "2021": {},
   "2022": {},
   "2023": {}
 };

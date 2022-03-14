@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppRoutingModule } from "./app-routing.module";
+import { FormsModule } from '@angular/forms';
+
 import { SharedModule } from "src/shared/shared.module";
 
 import { AppComponent } from "./app.component";
@@ -22,6 +24,7 @@ import { CalendarEffects } from "@shared/services/calendar.effects";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     SharedModule,
     StoreModule.forRoot({ content: contentReducer, calendar: calendarReducer, today: todayReducer }),
     EffectsModule.forRoot([ContentEffects, CalendarEffects])

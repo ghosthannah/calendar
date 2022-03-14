@@ -1,5 +1,9 @@
 <div class="centered">
-  <div>{{ month }} {{ year }}</div>
+  <div>
+    <select [(ngModel)]="selectedOption" (ngModelChange)="selectChange()">
+      <option *ngFor="let opt of months" [ngValue]="opt">{{ opt.label }}</option>
+    </select>
+  </div>
 
   <table class="calendar">
     <thead>
@@ -10,7 +14,7 @@
     <tbody>
       <tr *ngFor="let week of weeks">
         <td *ngFor="let day of week.days">
-          <app-summary-day [day]="day"></app-summary-day>
+          <app-summary-day [day]="day" [events]="getEventsForDay(day.d)" (onNewEvent)="createNewEvent($event)"></app-summary-day>
         </td>
       </tr>
     </tbody>

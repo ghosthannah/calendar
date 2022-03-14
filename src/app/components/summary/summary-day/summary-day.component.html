@@ -5,6 +5,16 @@
     weekday: isWeekday,
     today: isToday,
     'not-a-day': date === undefined
-  }">
-  <div *ngIf="date > 0" class="summary-date">{{ date }}</div>
+  }"
+  (click)="addNew()"
+  >
+  <div *ngIf="date > 0" class="summary-date">
+    {{ date }}
+    <div *ngFor="let event of events">
+      <div class="event" [ngClass]="event.type">
+        <span class="material-icons-outlined event-icon">{{ getIconForType(event) }}</span>
+        {{ event.name }}
+      </div>
+    </div>
+  </div>
 </div>

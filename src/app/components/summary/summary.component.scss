@@ -3,11 +3,16 @@
   margin: auto;
 
   .header-row {
-    font-size: 8px;
+    font-size: 10px;
   }
 
   tr > th,
   td {
     padding: 0px;
+  }
+
+  td {
+    width: 80px;
+    height: 80px;
   }
 }

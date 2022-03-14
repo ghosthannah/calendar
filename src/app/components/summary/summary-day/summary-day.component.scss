@@ -1,6 +1,6 @@
 .summary-day {
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 80px;
   border: 1px solid #eee;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .summary-date {
-  font-size: 10px;
+  font-size: 12px;
   text-align: left;
   padding: 1px;
 }
@@ -24,4 +24,39 @@
 
 .weekday {
   color: blue;
+}
+
+.event {
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 1px;
+}
+
+.event-icon {
+  font-size: 12px;
+}
+
+.birthday {
+  background-color: rgb(241, 157, 157);
+  color: rgb(75, 0, 0);
+}
+
+.holiday {
+  background-color: rgb(157, 241, 189);
+  color: rgb(1, 43, 17);
+}
+
+.pto_holiday {
+  background-color: rgb(148, 224, 133);
+  color: rgb(2, 24, 11);
+}
+
+.office {
+  background-color: rgb(248, 177, 221);
+  color: rgb(51, 0, 31);
+}
+
+.personal {
+  background-color: rgb(173, 173, 173);
+  color: rgb(20, 19, 26);
 }
